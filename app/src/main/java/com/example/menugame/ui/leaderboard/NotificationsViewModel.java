@@ -1,4 +1,4 @@
-package com.example.menugame.ui.notifications;
+package com.example.menugame.ui.leaderboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

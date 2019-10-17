@@ -1,4 +1,4 @@
-package com.example.menugame.ui.dashboard;
+package com.example.menugame.ui.game;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

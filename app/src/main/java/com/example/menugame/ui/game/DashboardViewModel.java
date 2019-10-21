@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class DashboardViewModel extends ViewModel {
     private MutableLiveData<String> mText;
     public String curProb;
     public int curSol;
+
+    private Button calcButton;
 
 
     public View onCreateView(LayoutInflater inflater,
@@ -89,12 +92,23 @@ public class DashboardViewModel extends ViewModel {
 
     }
 
+    public void onClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.button:
+                mathGame();
+        }
+    }
+
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
+        calcButton = (Button) calcButton.findViewById(R.id.button);
+        calcButton.setOnClickListener((View.OnClickListener) this);
     }
 
     public LiveData<String> getText() {
         return mText;
     }
+
 }

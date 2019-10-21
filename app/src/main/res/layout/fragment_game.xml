@@ -51,4 +51,15 @@
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:text="Question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

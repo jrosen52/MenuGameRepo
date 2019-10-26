@@ -7,12 +7,12 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_game"
+        android:id="@+id/navigation_dashboard"
         android:icon="@drawable/math_24"
         android:title="@string/title_game" />
 
     <item
-        android:id="@+id/navigation_leaderboard"
+        android:id="@+id/navigation_notifications"
         android:icon="@drawable/leaderboard_icon"
         android:title="@string/title_leaderboard" />
 

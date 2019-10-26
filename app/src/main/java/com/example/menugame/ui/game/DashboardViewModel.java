@@ -103,8 +103,8 @@ public class DashboardViewModel extends ViewModel {
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
-        calcButton = (Button) calcButton.findViewById(R.id.button);
-        calcButton.setOnClickListener((View.OnClickListener) this);
+        //calcButton = (Button) calcButton.findViewById(R.id.button);
+        //calcButton.setOnClickListener((View.OnClickListener) this);
     }
 
     public LiveData<String> getText() {

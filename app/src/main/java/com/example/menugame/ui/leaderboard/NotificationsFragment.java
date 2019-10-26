@@ -54,25 +54,25 @@ public class NotificationsFragment extends Fragment {
         person10.setText(players[9]);
 
         final TextView score1= root.findViewById(R.id.score1);
-        score1.setText(scores[0]);
+        score1.setText(Integer.toString(scores[0]));
         final TextView score2= root.findViewById(R.id.score2);
-        score2.setText(scores[1]);
+        score2.setText(Integer.toString(scores[1]));
         final TextView score3= root.findViewById(R.id.score3);
-        score3.setText(scores[2]);
+        score3.setText(Integer.toString(scores[2]));
         final TextView score4= root.findViewById(R.id.score4);
-        score4.setText(scores[3]);
+        score4.setText(Integer.toString(scores[3]));
         final TextView score5= root.findViewById(R.id.score5);
-        score5.setText(scores[4]);
+        score5.setText(Integer.toString(scores[4]));
         final TextView score6= root.findViewById(R.id.score6);
-        score1.setText(scores[5]);
+        score1.setText(Integer.toString(scores[5]));
         final TextView score7= root.findViewById(R.id.score7);
-        score1.setText(scores[6]);
+        score1.setText(Integer.toString(scores[6]));
         final TextView score8= root.findViewById(R.id.score8);
-        score1.setText(scores[7]);
+        score1.setText(Integer.toString(scores[7]));
         final TextView score9= root.findViewById(R.id.score9);
-        score1.setText(scores[8]);
+        score1.setText(Integer.toString(scores[8]));
         final TextView score10= root.findViewById(R.id.score10);
-        score1.setText(scores[9]);
+        score1.setText(Integer.toString(scores[9]));
 
         notificationsViewModel.getText().observe(this, new Observer<String>() {
             @Override

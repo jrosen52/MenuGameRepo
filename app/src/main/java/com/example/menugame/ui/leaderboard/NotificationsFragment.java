@@ -19,8 +19,8 @@ public class NotificationsFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
 
-    int scores[] = {2,4,6,8,10,12,14,16,18,20};
-    String players[] = {"John","James","Jessica","Julian","Justin","Jackie","Joseph","Jeremiah","Jerome","Steve"};
+    private int scores[] = {12,10,8,6,4,2};
+    private String players[] = {"John","James","Jessica","Julian","Justin","Jackie"};
 
     //Vector<TextView> lbNames = new Vector<TextView>();
     //Vector<TextView> lbScores = new Vector<TextView>();
@@ -44,17 +44,9 @@ public class NotificationsFragment extends Fragment {
         person5.setText(players[4]);
         final TextView person6= root.findViewById(R.id.person6);
         person6.setText(players[5]);
-        final TextView person7= root.findViewById(R.id.person7);
-        person7.setText(players[6]);
-        final TextView person8= root.findViewById(R.id.person8);
-        person8.setText(players[7]);
-        final TextView person9= root.findViewById(R.id.person9);
-        person9.setText(players[8]);
-        final TextView person10= root.findViewById(R.id.person10);
-        person10.setText(players[9]);
 
         final TextView score1= root.findViewById(R.id.score1);
-        score1.setText(Integer.toString(scores[0]));
+        score1.setText(String.format(""+scores[0]));
         final TextView score2= root.findViewById(R.id.score2);
         score2.setText(Integer.toString(scores[1]));
         final TextView score3= root.findViewById(R.id.score3);
@@ -64,15 +56,7 @@ public class NotificationsFragment extends Fragment {
         final TextView score5= root.findViewById(R.id.score5);
         score5.setText(Integer.toString(scores[4]));
         final TextView score6= root.findViewById(R.id.score6);
-        score1.setText(Integer.toString(scores[5]));
-        final TextView score7= root.findViewById(R.id.score7);
-        score1.setText(Integer.toString(scores[6]));
-        final TextView score8= root.findViewById(R.id.score8);
-        score1.setText(Integer.toString(scores[7]));
-        final TextView score9= root.findViewById(R.id.score9);
-        score1.setText(Integer.toString(scores[8]));
-        final TextView score10= root.findViewById(R.id.score10);
-        score1.setText(Integer.toString(scores[9]));
+        score6.setText(Integer.toString(scores[5]));
 
         notificationsViewModel.getText().observe(this, new Observer<String>() {
             @Override
@@ -80,6 +64,8 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+
         return root;
     }
 }

@@ -8,21 +8,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.menugame.R;
+import com.example.menugame.ui.leaderboard.NotificationsFragment;
 
 import java.util.Random;
 
-public class DashboardViewModel extends ViewModel {
+public class DashboardViewModel extends ViewModel implements View.OnClickListener {
 
     private MutableLiveData<String> mText;
     public String curProb;
     public int curSol;
+    public int score;
+    public int strikes = 3;
 
     private Button calcButton;
+
+
 
 
     public View onCreateView(LayoutInflater inflater,
@@ -71,23 +77,24 @@ public class DashboardViewModel extends ViewModel {
 
     public void mathGame()
     {
-        Random rand = new Random();
-        int probType = rand.nextInt(4);
-        if(probType == 0)
+        while(strikes > 0)
         {
-            addProb();
+            Random rand = new Random();
+            int probType = rand.nextInt(4);
+            if (probType == 0) {
+                addProb();
+            } else if (probType == 1) {
+                subProb();
+            } else if (probType == 2) {
+                multProb();
+            } else {
+                divProb();
+            }
         }
-        else if(probType == 1)
+        int lowest = NotificationsFragment.getInstance().lowestValue();
+        if(score > lowest)
         {
-            subProb();
-        }
-        else if(probType == 2)
-        {
-            multProb();
-        }
-        else
-        {
-            divProb();
+            NotificationsFragment.getInstance().updateBoard(score);
         }
 
     }
@@ -100,9 +107,10 @@ public class DashboardViewModel extends ViewModel {
         }
     }
 
+
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue(" ");
         //calcButton = (Button) calcButton.findViewById(R.id.button);
         //calcButton.setOnClickListener((View.OnClickListener) this);
     }

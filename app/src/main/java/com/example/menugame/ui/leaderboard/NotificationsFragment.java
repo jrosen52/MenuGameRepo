@@ -25,8 +25,16 @@ public class NotificationsFragment extends Fragment {
     //Vector<TextView> lbNames = new Vector<TextView>();
     //Vector<TextView> lbScores = new Vector<TextView>();
 
+    private static NotificationsFragment instance = null;
+
+    public int lowestValue()
+    {
+        return scores[6];
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        instance = this;
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_leaderboard, container, false);
@@ -46,7 +54,7 @@ public class NotificationsFragment extends Fragment {
         person6.setText(players[5]);
 
         final TextView score1= root.findViewById(R.id.score1);
-        score1.setText(String.format(""+scores[0]));
+        score1.setText(Integer.toString(scores[0]));
         final TextView score2= root.findViewById(R.id.score2);
         score2.setText(Integer.toString(scores[1]));
         final TextView score3= root.findViewById(R.id.score3);
@@ -66,6 +74,17 @@ public class NotificationsFragment extends Fragment {
         });
 
 
+
         return root;
+    }
+
+    public static NotificationsFragment getInstance()
+    {
+        return instance;
+    }
+
+    public void updateBoard(int score)
+    {
+
     }
 }

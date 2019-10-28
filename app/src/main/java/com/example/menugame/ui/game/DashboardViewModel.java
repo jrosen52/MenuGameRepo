@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +25,9 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
     public String curProb;
     public int curSol;
     public int score;
+    public String curPlayer;
     public int strikes = 3;
+    View curView;
 
     boolean started;
 
@@ -34,6 +37,7 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
                              ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
+        curView = view;
         answerButton= (Button) view.findViewById(R.id.button);
         answerButton.setOnClickListener(this);
         started = false;
@@ -71,31 +75,24 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
         curSol = sol;
     }
 
-    public void divProb()
-    {
-
-    }
-
     public void mathGame()
     {
         while(strikes > 0)
         {
             Random rand = new Random();
-            int probType = rand.nextInt(4);
+            int probType = rand.nextInt(3);
             if (probType == 0) {
                 addProb();
             } else if (probType == 1) {
                 subProb();
             } else if (probType == 2) {
                 multProb();
-            } else {
-                divProb();
             }
         }
         int lowest = NotificationsFragment.getInstance().lowestValue();
         if(score > lowest)
         {
-            NotificationsFragment.getInstance().updateBoard(score);
+            NotificationsFragment.getInstance().updateBoard(curPlayer,score);
         }
 
     }
@@ -103,14 +100,28 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
     public void onClick(View view)
     {
         final TextView problem = (TextView) view.findViewById(R.id.prob);
+        final EditText solution = (EditText) view.findViewById(R.id.answer);
+        String solString = solution.getText().toString();
+        int solInt = Integer.parseInt(solString);
+
         switch (view.getId()) {
             case R.id.button:
                 if(started == false)
                 {
+                    started = true;
                     mathGame();
                 }
                 else {
-
+                    if(solInt == curSol)
+                    {
+                        score++;
+                        mathGame();
+                    }
+                    else
+                    {
+                        strikes++;
+                        mathGame();
+                    }
                 }
         }
     }
@@ -119,8 +130,8 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue(" ");
-        //calcButton = (Button) calcButton.findViewById(R.id.button);
-        //calcButton.setOnClickListener((View.OnClickListener) this);
+        final TextView problem= curView.findViewById(R.id.prob);
+        problem.setText(curProb);
     }
 
     public LiveData<String> getText() {

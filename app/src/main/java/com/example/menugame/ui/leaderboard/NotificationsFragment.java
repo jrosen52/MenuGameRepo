@@ -87,25 +87,10 @@ public class NotificationsFragment extends Fragment {
 
     public void updateBoard(String player, int score)
     {
-        /*
-        final TextView person1= curView.findViewById(R.id.person1);
-        final TextView person2= curView.findViewById(R.id.person2);
-        final TextView person3= curView.findViewById(R.id.person3);
-        final TextView person4= curView.findViewById(R.id.person4);
-        final TextView person5= curView.findViewById(R.id.person5);
-        final TextView person6= curView.findViewById(R.id.person6);
-        */
+
         TextView lbPlayers[] = {curView.findViewById(R.id.person1),curView.findViewById(R.id.person2),curView.findViewById(R.id.person3),
                 curView.findViewById(R.id.person4),curView.findViewById(R.id.person5),curView.findViewById(R.id.person6)};
-/*
-        final TextView score1= curView.findViewById(R.id.score1);
-        final TextView score2= curView.findViewById(R.id.score2);
-        final TextView score3= curView.findViewById(R.id.score3);
-        final TextView score4= curView.findViewById(R.id.score4);
-        final TextView score5= curView.findViewById(R.id.score5);
-        final TextView score6= curView.findViewById(R.id.score6);
 
- */
         TextView lbScores[] = {curView.findViewById(R.id.score1),curView.findViewById(R.id.score2),curView.findViewById(R.id.score3),
                 curView.findViewById(R.id.score4),curView.findViewById(R.id.score5),curView.findViewById(R.id.score6)};
         int num = 0;

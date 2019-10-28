@@ -26,16 +26,17 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
     public int score;
     public int strikes = 3;
 
-    private Button calcButton;
+    boolean started;
 
-
-
+    private Button answerButton;
 
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
-        final TextView problem = (TextView) view.findViewById(R.id.prob);
+        answerButton= (Button) view.findViewById(R.id.button);
+        answerButton.setOnClickListener(this);
+        started = false;
         return view;
     }
 
@@ -101,9 +102,16 @@ public class DashboardViewModel extends ViewModel implements View.OnClickListene
 
     public void onClick(View view)
     {
+        final TextView problem = (TextView) view.findViewById(R.id.prob);
         switch (view.getId()) {
             case R.id.button:
-                mathGame();
+                if(started == false)
+                {
+                    mathGame();
+                }
+                else {
+
+                }
         }
     }
 

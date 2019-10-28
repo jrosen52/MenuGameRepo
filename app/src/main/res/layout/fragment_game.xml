@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Question here"
+        android:text="Press 'Answer' to begin"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="28sp"
@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteY="171dp" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/prob"
@@ -68,5 +68,28 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="106dp" />
+
+    <EditText
+        android:id="@+id/playerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_game"
+        android:layout_alignStart="@+id/prob"
+        android:layout_alignLeft="@+id/prob"
+        android:layout_marginStart="83dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="51dp"
+        android:background="#CCCCCC"
+        android:ems="10"
+        android:hint="Write Name Here"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="259dp">
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

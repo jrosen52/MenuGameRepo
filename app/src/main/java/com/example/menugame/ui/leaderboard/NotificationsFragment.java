@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,8 +24,7 @@ public class NotificationsFragment extends Fragment {
     private int scores[] = {12,10,8,6,4,2};
     private String players[] = {"John","James","Jessica","Julian","Justin","Jackie"};
 
-    //Vector<TextView> lbNames = new Vector<TextView>();
-    //Vector<TextView> lbScores = new Vector<TextView>();
+    private Button answerButton;
 
     private static NotificationsFragment instance = null;
 
@@ -72,8 +73,6 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });
-
-
 
         return root;
     }
